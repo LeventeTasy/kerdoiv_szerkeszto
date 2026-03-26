@@ -1,3 +1,4 @@
+"use client";
 interface SurveyHeaderProps {
   title: string;
   description: string;

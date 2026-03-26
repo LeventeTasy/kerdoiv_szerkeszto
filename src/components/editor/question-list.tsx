@@ -1,3 +1,4 @@
+"use client";
 import { QuestionItem } from "./question-item";
 import type { Question } from "@/types/survey";
 

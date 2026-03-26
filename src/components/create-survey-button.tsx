@@ -3,7 +3,7 @@ import Link from "next/link";
 export function CreateSurveyButton() {
   return (
     <Link
-      href="/survey/new/edit"
+      href="/survey/[id]/edit"
       className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-[0.98] md:px-5 md:py-3"
       aria-label="Új kérdőív létrehozása"
     >

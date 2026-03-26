@@ -1,3 +1,4 @@
+"use client";
 import type { Option, Question } from "@/types/survey";
 
 interface OptionItemProps {
