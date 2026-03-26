@@ -1,114 +1,108 @@
-# Receptgyűjtemény
+# Kérdőív Szerkesztő Alkalmazás
 
 **Webes alkalmazás specifikáció**
-**Programrendszerek fejlesztése gyakorlat**
-**MEAN Stack – Demonstrációs projekt**
+**Webfejlesztési keretrendszerek projektmunka**
+**Next.js – Demonstrációs projekt**
 **2026. tavasz**
 
 ---
 
 ## 1. Bevezetés
 
-A Receptgyűjtemény egy MEAN stack alapú webes alkalmazás, amely lehetővé teszi receptek létrehozását, böngészését és értékelését. A projekt célja a kurzus során tanult technológiák demonstrálása egy egyszerű, de teljes értékű CRUD rendszeren keresztül.
+A Kérdőív Szerkesztő egy modern, webalapú platform, amely kizárólag a kérdőívek professzionális vizuális összeállítására és menedzselésére fókuszál. A projekt célja, hogy a kérdőívkészítők egy intuitív felületen tudják megtervezni a struktúrát, miközben a háttérben perzisztens adattárolás és modern webes technológiák (Next.js) működnek.
 
-A rendszer két szerepkört különböztet meg: adminisztrátor és felhasználó. Az admin előre regisztrálva van, a felhasználók pedig a regisztrációs felületen keresztül hozhatnak létre fiókot.
+A rendszer két fő interakciós módot/szerepkört különböztet meg: a kérdőív tulajdonosát (létrehozó) és a meghívott szerkesztőtársat.
 
 ### 1.1. Technológiai stack
 
-- **MongoDB** – NoSQL adatbázis
-- **Express.js** – Szerver oldali keretrendszer
-- **Angular** – Kliens oldali keretrendszer
+- **Next.js (App Router)** – Kliens és szerver oldali keretrendszer
+- **React** – Felhasználói felület építő könyvtár
+- **Tailwind CSS** – Utility-first CSS keretrendszer (Design Tokenek)
+- **Firebase / NoSQL** – Perzisztens adattároló és háttérrendszer (Tervezett)
 - **Node.js** – Futási környezet
 
 ---
 
 ## 2. Szerepkörök
 
-### 2.1. Adminisztrátor
+### 2.1. Tulajdonos (Létrehozó)
 
-Az admin előre regisztrált fiókkal rendelkezik (seed adat). Jogosultságai:
+A kérdőívet eredetileg létrehozó felhasználó, aki teljes jogosultsággal rendelkezik a projekt felett. Jogosultságai:
 
-- Kategóriák létrehozása, módosítása és törlése
-- Receptek létrehozása, módosítása és törlése
-- Összes értékelés megtekintése és moderálása (törlés)
+- Új kérdőívek létrehozása, meglévők módosítása és végleges törlése
+- Kérdések, típusok és opciók teljes körű menedzselése
+- Szerkesztőtársak meghívása és jogosultságaik kezelése
 
-### 2.2. Felhasználó
+### 2.2. Szerkesztőtárs (Collaborator)
 
-A felhasználó a regisztrációs felületen keresztül hozhat létre fiókot. Jogosultságai:
+Kollaborációs partner, aki csak az adott, vele megosztott kérdőívekhez fér hozzá. Jogosultságai:
 
-- Receptek böngészése és részleteinek megtekintése
-- Értékelés írása receptekhez
-- Saját értékeléseinek módosítása és törlése
-- Receptek szűrése kategória szerint
+- A megosztott kérdőívek struktúrájának megtekintése
+- Kérdések hozzáadása, szerkesztése, sorrendjük megváltoztatása
+- Válaszopciók módosítása
+- **Korlátozás:** A teljes kérdőívet nem törölheti a rendszerből
 
 ---
 
 ## 3. Funkcionális követelmények
 
-1. A felhasználó regisztrálhat az alkalmazásba felhasználónév, e-mail és jelszó megadásával.
-2. A felhasználó bejelentkezhet az e-mail és jelszó párosával, sikeres bejelentkezés után JWT tokent kap.
-3. Az admin kategóriákat hozhat létre, módosíthat és törölhet.
-4. Az admin recepteket hozhat létre hozzávalókkal együtt, módosíthatja és törölheti azokat.
-5. A bejelentkezett felhasználó értékelést írhat receptekhez (1–5 pontszám + opcionális komment).
-6. A felhasználó módosíthatja és törölheti a saját értékeléseit.
-7. Bárki (bejelentkezés nélkül is) böngészheti a recepteket és szűrhet kategória szerint.
-8. A recept részletei oldalon megjeleníthetőek a hozzávalók és az értékelések.
-9. Az adatbázis demo adatokat tartalmaz (legalább 3 kategória, 5 recept, hozzávalókkal).
+1. A felhasználó új kérdőíveket (draftokat) hozhat létre, listázhatja a meglévőket, illetve módosíthatja és törölheti azokat (alapvető CRUD műveletek).
+2. A felhasználó a kérdőíven belül különböző kérdéstípusokat (pl. rövid szöveges, többválasztós, checkbox) vehet fel.
+3. A szerkesztőfelületen a kérdések sorrendje változtatható, és az egyes kérdésekhez tartozó opciók menedzselhetők.
+4. A felhasználó a meglévő (saját és megosztott) kérdőívei között kereshet és szűrhet a Dashboard listázó nézetén.
+5. A kérdőív tulajdonosa kollaborációs céllal szerkesztőtársakat rendelhet az adott kérdőívhez a beállítások menüben.
+6. A rendszer perzisztensen tárolja és logikai kapcsolatban tartja az entitásokat (Felhasználó, Kérdőív, Kérdés, Opció, Kollaborátor).
 
 ---
 
 ## 4. Nem-funkcionális követelmények
 
-1. A jelszó tárolás bcrypt hash-sel történik.
-2. JWT alapú autentikáció, token lejárati idővel.
-3. Role-based hozzáférés-vezérlés middleware-rel megvalósítva.
-4. CORS konfiguráció a kliens-szerver kommunikációhoz.
-5. Hibakezelés: a szerver értelmes HTTP státuszkodokat és hibaüzeneteket ad vissza.
-6. Reszponzív felhasználói felület Angular Material komponensekkel.
+1. Komponens-alapú architektúra a modern Next.js keretrendszer és az App Router használatával.
+2. Reszponzív, mobile-first elrendezés legalább 3 breakpoint (mobil, tablet, desktop) támogatásával.
+3. Vizuális konzisztencia és egységes UI kialakítása Tailwind CSS design tokenek alkalmazásával.
+4. Akadálymentesítés (Accessibility) biztosítása: szemantikus HTML elemek, ARIA attribútumok használata, valamint teljes billentyűzetes navigáció.
+5. Kliens-oldali routing használata a zökkenőmentes navigáció érdekében (MPA/SPA hibrid élmény).
+6. Perzisztens adattárolás az adatok munkamenetek közötti megőrzésére, backend integrációval.
 
 ---
 
 ## 5. Kliens oldali nézetek
 
-Az Angular alkalmazás az alábbi fő nézeteket (oldalakat) tartalmazza:
+A Next.js alkalmazás az alábbi fő nézeteket (oldalakat) tartalmazza a kliens oldalon:
 
-### 5.1. Nyilvános nézetek
+### 5.1. Általános nézetek
 
-- **Kezdőlap** – Receptek listája, kategória szűrővel
-- **Recept részletek** – Leírás, hozzávalók, értékelések
-- **Bejelentkezés** – E-mail és jelszó megadása
-- **Regisztráció** – Új fiók létrehozása
+- **Dashboard (`/`)** – A felhasználó saját és megosztott kérdőíveinek listázó nézete keresővel és szűrővel.
+- **404 Not Found** – Egyedi hibaoldal és visszanavigációs lehetőség az ismeretlen URL-ekre való navigálás esetén.
 
-### 5.2. Bejelentkezett felhasználói nézetek
+### 5.2. Kérdőív-specifikus nézetek
 
-- **Értékelés írása / módosítása** – Pontszám és komment űrlap
-
-### 5.3. Admin nézetek
-
-- **Kategória kezelés** – CRUD műveletek kategóriákra
-- **Recept kezelés** – CRUD műveletek receptekre és hozzávalókra
-- **Értékelés moderálás** – Értékelések áttekintése és törlése
+- **Szerkesztő oldal (`/survey/[id]/edit`)** – Vizuális felület a kérdőív struktúrájának és a kérdéseknek/opcióknak az összeállítására.
+- **Beállítások (`/survey/[id]/settings`)** – A kérdőív metaadatainak, alaptulajdonságainak és a szerkesztői jogosultságoknak (kollaborátorok) a kezelése.
 
 ---
 
 ## 6. Telepítés és futtatás
 
-A rendszer minden komponense konténerizált formában lesz üzemeltetve. A rendszer futtatásához szükséges előfeltételek:
+A rendszer lokális futtatásához és a fejlesztői környezet elindításához szükséges előfeltételek és parancsok:
 
-- Node.js (v24)
-- MongoDB (lokális)
-- Angular CLI (v21)
+- Node.js (v18 vagy újabb)
+- Függőségek telepítése: `npm install`
+- Fejlesztői szerver indítása: `npm run dev`
+- (A futó alkalmazás alapértelmezetten a `http://localhost:3000` címen érhető el.)
 
 ---
 
 ## 7. Mappaszerkezet
 
-A GitHub repository várt struktúrája:
+A GitHub repository várt struktúrája (Next.js App Router alapokon):
 
 | Mappa / Fájl | Leírás |
 |---|---|
-| `/server` | Express.js szerver forráskód |
-| `/client` | Angular alkalmazás forráskód |
-| `/docs` | Dokumentáció (ez a specifikáció is) |
-| `/prompts` | AI prompt-ok és elemzés |
-| `README.md` | Telepítési útmutató |
+| `/src/app` | Next.js App Router oldalak, layoutok és a routing struktúra |
+| `/src/components` | Újrafelhasználható React UI komponensek (külön mappázva) |
+| `/src/types` | TypeScript típusdefiníciók és interfészek |
+| `/docs` | Dokumentációs fájlok (SPECIFICATION, COMPONENTS, DATAMODEL) |
+| `/docs/AI_PROMPT_LOG.md` | Az AI asszisztensekkel való közös munka naplója és elemzése |
+| `package.json` | Projekt függőségek és scriptek |
+| `tailwind.config.ts` | Design tokenek és styling konfiguráció |
