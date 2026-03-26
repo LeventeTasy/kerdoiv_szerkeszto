@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navItems = [
-  { href: "/", label: "Dashboard" },
-  { href: "/survey/new/edit", label: "Editor" },
-  { href: "/settings", label: "Settings" },
+  { href: "/", label: "Irányítópult" },
+  { href: "/survey/new/edit", label: "Szerkesztő" },
+  { href: "/settings", label: "Beállítások" },
 ];
 
 export function Navbar() {
@@ -18,13 +18,13 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-border bg-card">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6 lg:px-8"
-        aria-label="Fo navigacio"
+        aria-label="Fő navigáció"
       >
         {/* Logo */}
         <Link
           href="/"
           className="flex items-center gap-2 text-lg font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-          aria-label="Fooldal"
+          aria-label="Főoldal"
         >
           <svg
             className="h-6 w-6 text-primary"
@@ -40,7 +40,7 @@ export function Navbar() {
               d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
             />
           </svg>
-          <span className="hidden sm:inline">Kerdoiv Szerkeszto</span>
+          <span className="hidden sm:inline">Kérdőív Szerkesztő</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -72,7 +72,7 @@ export function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           <div
             className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-medium"
-            aria-label="Felhasznalo profil"
+            aria-label="Felhasználó profil"
           >
             U
           </div>
@@ -84,7 +84,7 @@ export function Navbar() {
           className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-menu"
-          aria-label={isMobileMenuOpen ? "Menu bezarasa" : "Menu megnyitasa"}
+          aria-label={isMobileMenuOpen ? "Menü bezárása" : "Menü megnyitása"}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
@@ -154,11 +154,11 @@ export function Navbar() {
           <div className="mt-3 flex items-center gap-3 border-t border-border pt-3">
             <div
               className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-medium"
-              aria-label="Felhasznalo profil"
+              aria-label="Felhasználó profil"
             >
               U
             </div>
-            <span className="text-sm text-muted-foreground">Felhasznalo</span>
+            <span className="text-sm text-muted-foreground">Felhasználó</span>
           </div>
         </div>
       )}

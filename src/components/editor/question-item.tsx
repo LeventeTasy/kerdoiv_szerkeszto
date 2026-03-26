@@ -10,9 +10,9 @@ interface QuestionItemProps {
 }
 
 const questionTypeLabels: Record<Question["type"], string> = {
-  TEXT: "Szoveges valasz",
-  MULTIPLE_CHOICE: "Egyvalasztos",
-  CHECKBOX: "Tobbvalasztos",
+  TEXT: "Szöveges válasz",
+  MULTIPLE_CHOICE: "Egyválasztós",
+  CHECKBOX: "Többválasztós",
 };
 
 const questionTypeIcons: Record<Question["type"], React.ReactNode> = {
@@ -112,7 +112,7 @@ export function QuestionItem({ question, onUpdate, onDelete }: QuestionItemProps
           type="button"
           onClick={onDelete}
           className="rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label="Kerdes torlese"
+          aria-label="Kérdés törlése"
         >
           <svg
             className="h-5 w-5"
@@ -134,7 +134,7 @@ export function QuestionItem({ question, onUpdate, onDelete }: QuestionItemProps
       {/* Question Title Input */}
       <div className="mb-4">
         <label htmlFor={`question-${question.id}-title`} className="sr-only">
-          Kerdes szovege
+          Kérdés szövege
         </label>
         <input
           type="text"
@@ -142,7 +142,7 @@ export function QuestionItem({ question, onUpdate, onDelete }: QuestionItemProps
           value={question.title}
           onChange={(e) => onUpdate({ title: e.target.value })}
           className="block w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring"
-          placeholder="Ird be a kerdes szoveget..."
+          placeholder="Írd be a kérdés szövegét..."
         />
       </div>
 
@@ -150,7 +150,7 @@ export function QuestionItem({ question, onUpdate, onDelete }: QuestionItemProps
       {question.type !== "TEXT" && (
         <div className="space-y-2">
           <p className="text-sm font-medium text-muted-foreground">
-            Valaszlehetosegek
+            Válaszlehetőségek
           </p>
           <ul className="space-y-2" role="list">
             {question.options.map((option) => (
@@ -184,7 +184,7 @@ export function QuestionItem({ question, onUpdate, onDelete }: QuestionItemProps
                 d="M12 4v16m8-8H4"
               />
             </svg>
-            Uj opcio hozzaadasa
+            Új opció hozzáadása
           </button>
         </div>
       )}
@@ -192,7 +192,7 @@ export function QuestionItem({ question, onUpdate, onDelete }: QuestionItemProps
       {/* Text Answer Preview */}
       {question.type === "TEXT" && (
         <div className="rounded-lg border border-dashed border-border bg-muted/30 px-3 py-6 text-center text-sm text-muted-foreground">
-          A valaszolonak szoveges mezot fog latni
+          A válaszolónak szöveges mezőt fog látni
         </div>
       )}
     </article>

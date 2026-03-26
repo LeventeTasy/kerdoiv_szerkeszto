@@ -15,8 +15,8 @@ const questionTypes: {
 }[] = [
   {
     type: "TEXT",
-    label: "Szoveges",
-    description: "Szabad szoveges valasz mezo",
+    label: "Szöveges",
+    description: "Szabad szöveges válasz mező",
     icon: (
       <svg
         className="h-5 w-5"
@@ -36,8 +36,8 @@ const questionTypes: {
   },
   {
     type: "MULTIPLE_CHOICE",
-    label: "Egyvalasztos",
-    description: "Egy valasz kivalasztasa",
+    label: "Egyválasztós",
+    description: "Egy válasz kiválasztása",
     icon: (
       <svg
         className="h-5 w-5"
@@ -57,8 +57,8 @@ const questionTypes: {
   },
   {
     type: "CHECKBOX",
-    label: "Tobbvalasztos",
-    description: "Tobb valasz is kivalaszthato",
+    label: "Többválasztós",
+    description: "Több válasz is kiválasztható",
     icon: (
       <svg
         className="h-5 w-5"
@@ -103,19 +103,19 @@ export function AddQuestionButton({ onAddQuestion }: AddQuestionButtonProps) {
               d="M12 4v16m8-8H4"
             />
           </svg>
-          Uj kerdes hozzaadasa
+          Új kérdés hozzáadása
         </button>
       ) : (
         <div className="rounded-lg border border-border bg-card p-4">
           <div className="mb-3 flex items-center justify-between">
             <h3 className="text-sm font-medium text-foreground">
-              Valassz kerdestipust
+              Válassz kérdéstípust
             </h3>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
               className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              aria-label="Bezaras"
+              aria-label="Bezárás"
             >
               <svg
                 className="h-5 w-5"

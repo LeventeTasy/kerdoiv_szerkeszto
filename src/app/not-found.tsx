@@ -28,11 +28,11 @@ export default function NotFoundPage() {
 
       {/* Error Message */}
       <h2 className="mb-3 text-xl font-semibold text-foreground md:text-2xl">
-        Az oldal nem talalhato
+        Az oldal nem található
       </h2>
       <p className="mb-8 max-w-md text-sm text-muted-foreground md:text-base">
-        A keresett oldal nem letezik, vagy at lett helyezve. Ellenorizd a cimet,
-        vagy terj vissza a fooldlara.
+        A keresett oldal nem létezik, vagy át lett helyezve. Ellenőrizd a címet,
+        vagy térj vissza a főoldalra.
       </p>
 
       {/* Action Buttons */}
@@ -55,7 +55,7 @@ export default function NotFoundPage() {
               d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
             />
           </svg>
-          <span>Vissza a fooldara</span>
+          <span>Vissza a főoldalra</span>
         </Link>
         <button
           type="button"
@@ -76,7 +76,7 @@ export default function NotFoundPage() {
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
           </svg>
-          <span>Vissza az elozo oldalra</span>
+          <span>Vissza az előző oldalra</span>
         </button>
       </div>
     </div>

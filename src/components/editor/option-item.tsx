@@ -27,7 +27,7 @@ export function OptionItem({
 
       {/* Option input */}
       <label htmlFor={`option-${option.id}`} className="sr-only">
-        {option.order}. valaszlehetoseg
+        {option.order}. válaszlehetőség
       </label>
       <input
         type="text"
@@ -35,7 +35,7 @@ export function OptionItem({
         value={option.text}
         onChange={(e) => onUpdate(e.target.value)}
         className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring"
-        placeholder={`${option.order}. valaszlehetoseg`}
+        placeholder={`${option.order}. válaszlehetőség`}
       />
 
       {/* Delete button */}
@@ -44,7 +44,7 @@ export function OptionItem({
           type="button"
           onClick={onDelete}
           className="rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label={`${option.order}. valaszlehetoseg torlese`}
+          aria-label={`${option.order}. válaszlehetőség törlése`}
         >
           <svg
             className="h-4 w-4"

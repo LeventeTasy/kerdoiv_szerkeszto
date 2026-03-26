@@ -53,11 +53,11 @@ export function SurveyCard({ survey }: SurveyCardProps) {
           </h3>
         </div>
         <div className="flex shrink-0 items-center gap-1">
-          <span className="sr-only">Muvelet menuk</span>
+          <span className="sr-only">Művelet menük</span>
           <button
             type="button"
             className="relative z-10 rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label={`${survey.title} kerdoiv opcio menu`}
+            aria-label={`${survey.title} kérdőív opció menü`}
           >
             <svg
               className="h-5 w-5"
@@ -82,7 +82,7 @@ export function SurveyCard({ survey }: SurveyCardProps) {
         id={`survey-desc-${survey.id}`}
         className="mb-4 line-clamp-2 text-sm text-muted-foreground flex-1"
       >
-        {survey.description || "Nincs leiras megadva"}
+        {survey.description || "Nincs leírás megadva"}
       </p>
 
       {/* Card Footer */}
@@ -104,7 +104,7 @@ export function SurveyCard({ survey }: SurveyCardProps) {
             />
           </svg>
           <span>
-            {survey.questionCount ?? 0} kerdes
+            {survey.questionCount ?? 0} kérdés
           </span>
         </div>
 
@@ -132,16 +132,16 @@ export function SurveyCard({ survey }: SurveyCardProps) {
           <Link
             href={`/survey/${survey.id}/edit`}
             className="relative z-10 rounded-md px-2.5 py-1 text-xs font-medium text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label={`${survey.title} szerkesztese`}
+            aria-label={`${survey.title} szerkesztése`}
           >
-            Szerkesztes
+            Szerkesztés
           </Link>
           <Link
             href={`/survey/${survey.id}/settings`}
             className="relative z-10 rounded-md px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label={`${survey.title} beallitasai`}
+            aria-label={`${survey.title} beállításai`}
           >
-            Beallitasok
+            Beállítások
           </Link>
         </div>
       </footer>

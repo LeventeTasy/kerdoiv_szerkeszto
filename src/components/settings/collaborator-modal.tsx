@@ -90,13 +90,13 @@ export function CollaboratorModal({
             id="modal-title"
             className="text-lg font-semibold text-card-foreground"
           >
-            Szerkesztotars meghivasa
+            Szerkesztőtárs meghívása
           </h2>
           <button
             type="button"
             onClick={onClose}
             className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label="Bezaras"
+            aria-label="Bezárás"
           >
             <svg
               className="h-5 w-5"

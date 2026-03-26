@@ -7,7 +7,7 @@ import { AddQuestionButton } from "@/components/editor/add-question-button";
 import type { Question } from "@/types/survey";
 
 export default function EditorPage() {
-  const [title, setTitle] = useState("Uj kerdoiv");
+  const [title, setTitle] = useState("Új kérdőív");
   const [description, setDescription] = useState("");
   const [questions, setQuestions] = useState<Question[]>([]);
 
@@ -49,10 +49,10 @@ export default function EditorPage() {
       <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between md:mb-8">
         <div>
           <h1 className="text-2xl font-bold text-foreground md:text-3xl">
-            Kerdoiv szerkeszto
+            Kérdőív szerkesztő
           </h1>
           <p className="mt-1 text-sm text-muted-foreground md:text-base">
-            Add hozza es szerkeszd a kerdeseket
+            Add hozzá és szerkeszd a kérdéseket
           </p>
         </div>
         <button
@@ -73,7 +73,7 @@ export default function EditorPage() {
               d="M5 13l4 4L19 7"
             />
           </svg>
-          <span>Mentes</span>
+          <span>Mentés</span>
         </button>
       </header>
 
@@ -86,10 +86,10 @@ export default function EditorPage() {
       />
 
       {/* Questions Section */}
-      <section className="mt-8" aria-label="Kerdesek">
+      <section className="mt-8" aria-label="Kérdések">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-foreground md:text-xl">
-            Kerdesek ({questions.length})
+            Kérdések ({questions.length})
           </h2>
         </div>
 
@@ -119,10 +119,10 @@ export default function EditorPage() {
               </svg>
             </div>
             <h3 className="text-lg font-semibold text-foreground">
-              Meg nincsenek kerdesek
+              Még nincsenek kérdések
             </h3>
             <p className="mt-1 max-w-sm text-sm text-muted-foreground">
-              Add hozza az elso kerdest a lenti gombokkal
+              Add hozzá az első kérdést a lenti gombokkal
             </p>
           </div>
         )}
