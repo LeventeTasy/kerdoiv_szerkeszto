@@ -13,7 +13,7 @@ const mockCollaborators: Collaborator[] = [
     role: "EDITOR",
     user: {
       id: "user-1",
-      name: "Kiss Peter",
+      name: "Kiss Péter",
       email: "peter.kiss@example.com",
     },
   },
@@ -31,9 +31,9 @@ const mockCollaborators: Collaborator[] = [
 ];
 
 export default function SettingsPage() {
-  const [surveyTitle, setSurveyTitle] = useState("Ugyfel elegedettsegi kerdoiv");
+  const [surveyTitle, setSurveyTitle] = useState("Ügyfél elégedettségi kérdőív");
   const [surveyDescription, setSurveyDescription] = useState(
-    "Merd fel a vasarloid elegedettsegett a szolgaltatasaiddal kapcsolatban."
+    "Mérd fel a vásárlóid elégedettségét a szolgáltatásaiddal kapcsolatban."
   );
   const [collaborators, setCollaborators] = useState<Collaborator[]>(mockCollaborators);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,10 +71,10 @@ export default function SettingsPage() {
       {/* Page Header */}
       <header className="mb-6 md:mb-8">
         <h1 className="text-2xl font-bold text-foreground md:text-3xl">
-          Beallitasok
+          Beállítások
         </h1>
         <p className="mt-1 text-sm text-muted-foreground md:text-base">
-          Kezeld a kerdoiv alapadatait es a szerkesztotarsakat
+          Kezeld a kérdőív alapadatait és a szerkesztőtársakat
         </p>
       </header>
 
@@ -87,7 +87,7 @@ export default function SettingsPage() {
           id="survey-details-heading"
           className="mb-4 text-lg font-semibold text-card-foreground md:text-xl"
         >
-          Kerdoiv adatai
+          Kérdőív adatai
         </h2>
         <div className="space-y-4">
           <div>
@@ -95,7 +95,7 @@ export default function SettingsPage() {
               htmlFor="survey-title"
               className="mb-1.5 block text-sm font-medium text-foreground"
             >
-              Cim
+              Cím
             </label>
             <input
               type="text"
@@ -103,7 +103,7 @@ export default function SettingsPage() {
               value={surveyTitle}
               onChange={(e) => setSurveyTitle(e.target.value)}
               className="block w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring"
-              placeholder="Add meg a kerdoiv cimet"
+              placeholder="Add meg a kérdőív címét"
             />
           </div>
           <div>
@@ -111,7 +111,7 @@ export default function SettingsPage() {
               htmlFor="survey-description"
               className="mb-1.5 block text-sm font-medium text-foreground"
             >
-              Leiras
+              Leírás
             </label>
             <textarea
               id="survey-description"
@@ -119,7 +119,7 @@ export default function SettingsPage() {
               onChange={(e) => setSurveyDescription(e.target.value)}
               rows={3}
               className="block w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-              placeholder="Rovid leiras a kerdoivrol"
+              placeholder="Rövid leírás a kérdőívről"
             />
           </div>
           <div className="flex justify-end">
@@ -127,7 +127,7 @@ export default function SettingsPage() {
               type="button"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-[0.98]"
             >
-              Mentes
+              Mentés
             </button>
           </div>
         </div>
@@ -143,7 +143,7 @@ export default function SettingsPage() {
             id="collaborators-heading"
             className="text-lg font-semibold text-card-foreground md:text-xl"
           >
-            Szerkesztotarsak ({collaborators.length})
+            Szerkesztőtársak ({collaborators.length})
           </h2>
           <button
             type="button"
@@ -164,7 +164,7 @@ export default function SettingsPage() {
                 d="M12 4v16m8-8H4"
               />
             </svg>
-            <span>Meghivas</span>
+            <span>Meghívás</span>
           </button>
         </div>
 

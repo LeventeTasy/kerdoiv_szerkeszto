@@ -4,36 +4,36 @@ import { useState } from "react";
 import { SurveyCard, type Survey } from "@/components/survey-card";
 import { CreateSurveyButton } from "@/components/create-survey-button";
 
-// Mock data - kesobb adatbazisbol fog jonni
+// Mock data - később adatbázisból fog jönni
 const mockSurveys: Survey[] = [
   {
     id: "1",
-    title: "Ugyfel elegedettsegi kerdoiv",
+    title: "Ügyfél elégedettségi kérdőív",
     description:
-      "Merd fel a vasarloid elegedettsegett a szolgaltatasaiddal kapcsolatban.",
+      "Mérd fel a vásárlóid elégedettségét a szolgáltatásaiddal kapcsolatban.",
     updatedAt: new Date("2026-03-25T10:30:00"),
     questionCount: 12,
   },
   {
     id: "2",
-    title: "Munkavallaloi feedback",
+    title: "Munkavállalói feedback",
     description:
-      "Gyujts visszajelzeseket a csapatodtol a munkahelyi kornyezetrol es a folyamatokrol.",
+      "Gyűjts visszajelzéseket a csapatodtól a munkahelyi környezetről és a folyamatokról.",
     updatedAt: new Date("2026-03-24T14:15:00"),
     questionCount: 8,
   },
   {
     id: "3",
-    title: "Termek visszajelzes",
+    title: "Termék visszajelzés",
     description:
-      "Ertekeld az uj termek funkcionalitasat es hasznalhatosagat a felhasznalok szemszoegebol.",
+      "Értékeld az új termék funkcionalitását és használhatóságát a felhasználók szemszögéből.",
     updatedAt: new Date("2026-03-20T09:00:00"),
     questionCount: 15,
   },
   {
     id: "4",
-    title: "Esemenyszervezes felmeres",
-    description: "Tervezd meg a kovetkezo cegrendezvenyt a resztvevok igenyei alapjan.",
+    title: "Eseményszervezés felmérés",
+    description: "Tervezd meg a következő céges rendezvényt a résztvevők igényei alapján.",
     updatedAt: new Date("2026-03-18T16:45:00"),
     questionCount: 6,
   },
@@ -55,22 +55,22 @@ export default function DashboardPage() {
       <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between md:mb-8">
         <div>
           <h1 className="text-2xl font-bold text-foreground md:text-3xl lg:text-4xl">
-            Kerdoivek
+            Kérdőívek
           </h1>
           <p className="mt-1 text-sm text-muted-foreground md:text-base">
-            Kezeld es szerkeszd a kerdoiveidet
+            Kezeld és szerkeszd a kérdőíveidet
           </p>
         </div>
         <CreateSurveyButton />
       </header>
 
       {/* Search and Filter Section */}
-      <section className="mb-6 md:mb-8" aria-label="Kereses es szures">
+      <section className="mb-6 md:mb-8" aria-label="Keresés és szűrés">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           {/* Search Input */}
           <div className="relative flex-1 sm:max-w-md">
             <label htmlFor="search-surveys" className="sr-only">
-              Kerdoivek keresese
+              Kérdőívek keresése
             </label>
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               <svg
@@ -91,7 +91,7 @@ export default function DashboardPage() {
             <input
               type="search"
               id="search-surveys"
-              placeholder="Kereses cim vagy leiras alapjan..."
+              placeholder="Keresés cím vagy leírás alapján..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="block w-full rounded-lg border border-border bg-card py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring"
@@ -103,14 +103,14 @@ export default function DashboardPage() {
             <span className="font-medium text-foreground">
               {filteredSurveys.length}
             </span>{" "}
-            kerdoiv talalat
+            kérdőív találat
           </p>
         </div>
       </section>
 
       {/* Survey Grid */}
       {filteredSurveys.length > 0 ? (
-        <section aria-label="Kerdoiv lista">
+        <section aria-label="Kérdőív lista">
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {filteredSurveys.map((survey) => (
               <li key={survey.id}>
@@ -122,7 +122,7 @@ export default function DashboardPage() {
       ) : (
         <section
           className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-border bg-card/50 px-6 py-12 text-center md:py-16"
-          aria-label="Nincs talalat"
+          aria-label="Nincs találat"
         >
           <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-muted md:h-16 md:w-16">
             <svg
@@ -141,12 +141,12 @@ export default function DashboardPage() {
             </svg>
           </div>
           <h2 className="text-lg font-semibold text-foreground md:text-xl">
-            Nincs talalat
+            Nincs találat
           </h2>
           <p className="mt-1 max-w-sm text-sm text-muted-foreground md:text-base">
             {searchQuery
-              ? `Nem talalhato kerdoiv "${searchQuery}" keresesre.`
-              : "Meg nincsenek kerdoiveid. Hozd letre az elsot!"}
+              ? `Nem található kérdőív "${searchQuery}" keresésre.`
+              : "Még nincsenek kérdőíveid. Hozd létre az elsőt!"}
           </p>
           {!searchQuery && (
             <div className="mt-6">

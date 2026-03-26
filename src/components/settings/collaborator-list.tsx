@@ -7,8 +7,8 @@ interface CollaboratorListProps {
 }
 
 const roleLabels: Record<Collaborator["role"], string> = {
-  EDITOR: "Szerkeszto",
-  VIEWER: "Megtekintonek",
+  EDITOR: "Szerkesztő",
+  VIEWER: "Megtekintő",
 };
 
 export function CollaboratorList({
@@ -36,10 +36,10 @@ export function CollaboratorList({
           </svg>
         </div>
         <p className="text-sm font-medium text-foreground">
-          Meg nincsenek szerkesztotarsak
+          Még nincsenek szerkesztőtársak
         </p>
         <p className="mt-1 text-sm text-muted-foreground">
-          Hivj meg masokat a kerdoiv szerkesztesehez
+          Hívj meg másokat a kérdőív szerkesztéséhez
         </p>
       </div>
     );
@@ -61,7 +61,7 @@ export function CollaboratorList({
             </div>
             <div className="min-w-0">
               <p className="truncate text-sm font-medium text-foreground">
-                {collaborator.user?.name || "Ismeretlen felhasznalo"}
+                {collaborator.user?.name || "Ismeretlen felhasználó"}
               </p>
               <p className="truncate text-sm text-muted-foreground">
                 {collaborator.user?.email || ""}
@@ -70,7 +70,7 @@ export function CollaboratorList({
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
             <label htmlFor={`role-${collaborator.id}`} className="sr-only">
-              Szerepkor beallitasa
+              Szerepkör beállítása
             </label>
             <select
               id={`role-${collaborator.id}`}
@@ -87,7 +87,7 @@ export function CollaboratorList({
               type="button"
               onClick={() => onRemove(collaborator.id)}
               className="rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              aria-label={`${collaborator.user?.name || "Felhasznalo"} eltavolitasa`}
+              aria-label={`${collaborator.user?.name || "Felhasználó"} eltávolítása`}
             >
               <svg
                 className="h-5 w-5"
