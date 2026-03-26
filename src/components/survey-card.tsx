@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useMemo } from "react";
 
 export interface Survey {
   id: string;
@@ -13,13 +16,20 @@ interface SurveyCardProps {
 }
 
 export function SurveyCard({ survey }: SurveyCardProps) {
-  const formattedDate = new Intl.DateTimeFormat("hu-HU", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(survey.updatedAt);
+  const formattedDate = useMemo(() => {
+    return new Intl.DateTimeFormat("hu-HU", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "UTC",
+    }).format(new Date(survey.updatedAt));
+  }, [survey.updatedAt]);
+
+  const isoDate = useMemo(() => {
+    return new Date(survey.updatedAt).toISOString();
+  }, [survey.updatedAt]);
 
   return (
     <article
@@ -114,7 +124,7 @@ export function SurveyCard({ survey }: SurveyCardProps) {
               d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <time dateTime={survey.updatedAt.toISOString()}>{formattedDate}</time>
+          <time dateTime={isoDate}>{formattedDate}</time>
         </div>
 
         {/* Quick Actions */}
