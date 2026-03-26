@@ -232,3 +232,106 @@ A tervezési fázis szilárd alapot nyújt a következő mérföldkövekhez is:
 
 Szeretné, hogy összeállítsak egy olyan részletes utasítást a v0.dev mesterséges intelligencia eszközhöz, amely segítségével elkészíthető az alkalmazás központi felületének (Dashboard) reszponzív, Tailwind CSS alapú váza?
 ```
+
+### 
+- Kérdés: "Kérlek, segíts elkészíteni egy modern webalkalmazás alapjait Next.js, Tailwind CSS és shadcn/ui használatával a csatolt dokumentáció alapján.
+
+Fontos elvárások: 1. Mobile-first és Reszponzivitás: A felületnek legalább 3 breakpointon (mobil, tablet, desktop) tökéletesen kell megjelennie. 2. Akadálymentesítés: Használj szemantikus HTML elemeket és ARIA attribútumokat az accessibility biztosításához. 3. Design Tokenek: Alkalmazz konzisztens spacing- és színrendszert a Tailwind segítségével. 4. Navigáció: Készíts egy funkcionális Navbar komponenst, amely kezeli a Dashboard, Editor és Settings oldalakat.
+
+Először a közös Layout-ot és a Dashboard (kérdőív listázó) oldalt generáld le, ahol a SurveyCard komponensek megjelennek.
+
+Dokumentáció:
+A SPECIFICATION.md, DATAMODEL.md és COMPONENTS.md fájlokat csatolom, azok alapján segíts nekem"
+
+- v0 AI válasza:
+```
+Read COMPONENTS.mdThought for 1sExplore • 2 Files • 1 SearchExplore • 3 FilesMost látom a projekt jelenlegi állapotát. Elkészítem a következő elemeket a dokumentáció alapján:
+
+1. Design tokenek a globals.css-ben
+2. Navbar komponens
+3. AppLayout komponens
+4. SurveyCard komponens
+5. Dashboard oldal
+
+
+Created CreateSurveyButtonRead tsconfig.jsonThought for 1sRead page.tsxCreated Dashboard pagev2+547/-65Elkeszitettem a kerdoiv szerkeszto alkalmazas alapjait a dokumentacio alapjan. A kovetkezo elemeket hoztam letre:
+
+**Design Tokenek (globals.css):** Teljes szinrendszer light es dark modhoz, beleertve a primary, secondary, muted, accent, border es ring szineket.
+
+**Navbar komponens:** Reszponziv navigacios sav 3 breakpointtal (mobil hamburger menu, tablet es desktop nezet), amely kezeli a Dashboard, Editor es Settings oldalakat. ARIA attributumok es szemantikus HTML elemek biztositjak az akadalymentesseget.
+
+**SurveyCard komponens:** Kerdoiveket megjelenito kartya a cimmel, leirassal, kerdessszammal es utolso modositas datummal. Quick action linkek a szerkeszteshez es beallitasokhoz.
+
+**CreateSurveyButton komponens:** Uj kerdoiv letrehozasara szolgalo gomb.
+
+**Dashboard oldal:** Kerdoiv listazas keresesi funkcionalitassal, reszponziv grid elrendezessel (1/2/3 oszlop), es ures allapot kezelesevel.
+
+DiagnosticsPassedThought for 4sEz a figyelmezetes egy korabbi Image komponensbol szarmazik, amelyet mar lecsereltunk az uj Dashboard oldallal. Ez nem egy kritikus hiba, hanem csak egy figyelmeztetese a Next.js Image komponensnek. Az alkalmazas megfeleloen mukodik.
+
+A kerdoiv szerkeszto alapjai keszen allnak:
+
+- **Dashboard oldal** a kerdoivek listajaval es keresovel
+- **Navbar** reszponziv navigacioval (mobil, tablet, desktop)
+- **SurveyCard** komponensek a kerdoivek megjeleniresere
+- **Design tokenek** konzisztens szinrendszerrel
+```
+
+- Kérdés: "Kérlek, készítsd el a Kérdőív szerkesztő alkalmazás hiányzó oldalainak tartalmát a Next.js App Router struktúrához, a korábbi dokumentáció és a már meglévő komponenseim (Navbar, SurveyCard, CreateSurveyButton) alapján.
+
+Szükségem van a következő konkrét fájlok kódjára:
+-Dashboard oldal (app/dashboard/page.tsx): Itt jelenjen meg a kérdőívek listája a SurveyCard komponensekkel.
+-Editor oldal (app/editor/page.tsx): Egy vizuális felület, ahol új kérdéseket lehet hozzáadni (szöveges, többválasztós), és szerkeszteni a kérdőív címét.
+-Settings oldal (app/settings/page.tsx): Itt lehessen kezelni a kérdőív alapadatait és a szerkesztőtársak (Collaborators) listáját.
+-Egyedi 404 oldal (app/not-found.tsx): Egy stílusos hibaoldal, amely tartalmaz egy gombot a kezdőlapra való visszatéréshez.
+
+Elvárások:
+-Használd a már meglévő komponenseimet a kódokban.
+-Biztosítsd a teljes reszponzivitást (mobil, tablet, desktop).
+-Ügyelj az akadálymentességre (szemantikus tag-ek, megfelelő kontraszt).
+-Használj TypeScriptet és Tailwind CSS osztályokat."
+
+- v0 AI válasza:
+```
+Thought for 2sExplore • 5 FilesMost elolvasom a meglevo page.tsx-et, majd letrehozom az osszes szukseges oldalt es komponenst.
+
+Read page.tsxMost letrehozom a hianyzo oldalakat es komponenseket:
+
+Created typesCreated AddQuestionButtonCreated CollaboratorModalElkeszultek a hianyzo oldalak es komponensek. A kovetkezo fajlokat hoztam letre:
+
+**Oldalak:**
+
+- `/app/survey/new/edit/page.tsx` - Editor oldal vizualis szerkesztohozz, ahol uj kerdeseket (szoveges, egyvalasztos, tobbvalasztos) lehet hozzaadni
+- `/app/settings/page.tsx` - Settings oldal a kerdoiv alapadatainak es a szerkesztotarsaknak a kezelesehez
+- `/app/not-found.tsx` - Stilusos 404-es hibaoldal visszateresi gombokkal
+
+
+**Komponensek:**
+
+- `editor/survey-header.tsx` - Kerdoiv cim es leiras szerkeszto
+- `editor/question-list.tsx` - Kerdesek listazasa
+- `editor/question-item.tsx` - Egyes kerdes szerkeszto blokk opcio kezelesevel
+- `editor/option-item.tsx` - Valaszlehetosegek szerkesztese
+- `editor/add-question-button.tsx` - Uj kerdes hozzaadasa tipusvalasztoval
+- `settings/collaborator-list.tsx` - Szerkesztotarsak listazasa szerepkor valtoztatassal
+- `settings/collaborator-modal.tsx` - Modal az uj szerkesztotars meghivasahoz
+
+
+**Tipusok:**
+
+- `types/survey.ts` - TypeScript interfacek a dokumentacio alapjan (User, Survey, Collaborator, Question, Option)
+
+
+DiagnosticsPassedThought for 3sRead SurveyCardFixed hydration issueUpdated isoDate usagev3+1,285/-8Javitottam a hydration hibat a SurveyCard komponensben. A problema az volt, hogy a datum formatazas kulonbozhetett a szerver es a kliens kozott az idozoak miatt. A megoldas: hozzaadtam a `"use client"` direktivat, beallitottam a `timeZone: "UTC"` parametert a DateTimeFormat-nak, es `useMemo`-val memorializaltam a datum ertekeket a konzisztens rendereles erdekeben.
+
+DiagnosticsMax attempts reached
+```
+
+- Kérdés: "A generált kód vizuálisan jól néz ki, de két fontos javítást kérek:
+-Szövegek ékezetezése: Kérlek, az összes magyar nyelvű feliratot (gombok, menüpontok, címek, leírások) pótold ékezetekkel a helyesírási szabályoknak megfelelően. 
+-Színkontraszt és Sötét mód: A helyi futtatáskor fehér alapon fehér szöveg jelenik meg, ami olvashatatlan. Kérlek, javítsd a Tailwind konfigurációt vagy a komponensek osztályait úgy, hogy fixen sötét hátteret használjanak (Dark Mode), vagy biztosíts megfelelő kontrasztot mind világos, mind sötét módban. A háttér legyen sötétkék vagy fekete, a szövegek pedig fehérek vagy világosszürkék, ahogy a Vercel-es előnézetben látszik.
+-Akadálymentesség: Ellenőrizd, hogy a színek megfelelnek-e a WCAG kontrasztarány-előírásainak."
+
+- v0 AI válasza:
+```
+
+```
