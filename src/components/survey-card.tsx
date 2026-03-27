@@ -44,7 +44,7 @@ export function SurveyCard({ survey }: SurveyCardProps) {
             className="text-base font-semibold text-card-foreground truncate md:text-lg"
           >
             <Link
-              href={`/survey/${survey.id}/edit`}
+                href={`/survey/${survey.id}/edit`}
               className="after:absolute after:inset-0 focus-visible:outline-none"
               aria-describedby={`survey-desc-${survey.id}`}
             >

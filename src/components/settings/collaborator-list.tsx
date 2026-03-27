@@ -1,3 +1,4 @@
+"use client";
 import type { Collaborator } from "@/types/survey";
 
 interface CollaboratorListProps {
