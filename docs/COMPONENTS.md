@@ -1,5 +1,5 @@
 # Kérdőív Szerkesztő Alkalmazás - Komponens-terv
-
+# modified
 ## 1. Komponensfa (Hierarchia)
 
 Az alkalmazás felépítése egyértelmű szülő-gyerek viszonyokra és újrafelhasználható UI elemekre épül. Az alábbi hierarchikus lista mutatja be a főbb komponensek egymáshoz való viszonyát:
