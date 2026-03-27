@@ -34,3 +34,13 @@ A főbb oldalak és a hozzájuk tartozó önálló, saját fájlban lévő kompo
 * **Útvonal:** `/` vagy `/dashboard`
 * **Komponensek:** `SurveyCard`, `CreateSurveyButton`
 * **Funkció:** A felhasználó saját és vele megosztott kérdőíveinek megjelenítése, új kérdőív inicializálása.
+
+### Editor (Kérdőív szerkesztő)
+* **Útvonal:** `/survey/[id]/edit`
+* **Komponensek:** `SurveyHeader`, `QuestionList`, `QuestionItem`, `OptionItem`
+* **Funkció:** A kérdőív struktúrájának vizuális felépítése, kérdések típusának beállítása, sorrendezése és az opciók megadása. Itt érvényesül a legmélyebb komponens-beágyazás.
+
+### Settings (Kollaboráció és beállítások)
+* **Útvonal:** `/survey/[id]/settings`
+* **Komponensek:** `CollaboratorList`, `CollaboratorModal`
+* **Funkció:** A kérdőív metaadatainak módosítása, valamint más felhasználók (szerkesztőtársak) meghívása és jogosultságaik kezelése.
